@@ -3,6 +3,9 @@
     name: "*"
     state: latest
     update_cache: yes
+
+- name: upgrade all package
+  apt:
     upgrade: yes
 
 - name: install basic packages
