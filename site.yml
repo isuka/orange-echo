@@ -1,0 +1,8 @@
+- name: setup orange-echo
+  hosts: orange-echo
+  gather_facts: true
+  become: true
+  tasks:
+    - name: initial setup
+      import_role:
+        name: initial

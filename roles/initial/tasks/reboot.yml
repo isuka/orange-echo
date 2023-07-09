@@ -1,0 +1,4 @@
+- name: OS reboot
+  reboot:
+    msg: "reboot from ansible"
+

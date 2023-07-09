@@ -1,0 +1,23 @@
+- name: update all package
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+    upgrade: yes
+
+- name: install basic packages
+  apt:
+    name:
+      - sudo
+      - chrony
+      - nfs-common
+      - tcpdump
+      - sysstat
+      - lsof
+      - traceroute
+      - fio
+      - wget
+      - curl
+      - vim
+    state: latest
+
