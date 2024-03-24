@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  samba:
+    restart: always
+    container_name: samba
+    image: ghcr.io/servercontainers/samba
+    network_mode: host
+    tty: true
+    volumes:
+      - /mnt/active:/shares
+
+    environment:
+      SAMBA_CONF_LOG_LEVEL: 3
+      SAMBA_CONF_WORKGROUP: WORKGROUP
+
+      WSDD2_DISABLE: 1
+      AVAHI_DISABLE: 1
+
+      GROUP_hoge: 10000
+
+      # account info
+      # https://github.com/servercontainers/samba/pkgs/container/samba
+      #ACCOUNT_hoge: <samba hash>
+      #UID_hoge: 10000
+      #GROUPS_hoge: hogehoge
+
+      SAMBA_VOLUME_CONFIG_shared_home: "[homes]; path=/shares/home/%U; valid users = hoge; guest ok = no; read only = no; browseable = yes"
+

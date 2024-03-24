@@ -6,3 +6,14 @@
     - name: initial setup
       import_role:
         name: initial
+      tags: debug-skip
+
+    - name: mount external disk
+      import_role:
+        name: external-disk
+      tags: debug-skip
+
+    - name: setup samba
+      import_role:
+        name: samba
+      tags: debug-skip

@@ -1,0 +1,7 @@
+mount_points:
+  - { path: '/mnt/usb1', src: 'UUID=7bc7d8ca-2388-4f36-9771-869785cf2f03' }
+  - { path: '/mnt/usb2', src: 'UUID=379a30e2-92ad-4542-b503-d2c553a544dd' }
+
+mount_symlinks:
+  - { src: './usb1', dest: '/mnt/active' }
+  - { src: './usb2', dest: '/mnt/backup' }

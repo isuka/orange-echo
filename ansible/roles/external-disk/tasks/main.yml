@@ -1,0 +1,21 @@
+- name: create mount point for user data
+  file:
+    path: "{{ item.path }}"
+    state: directory
+  with_items: "{{ mount_points }}"
+
+- name: mount disks for user data
+  mount:
+    path: "{{ item.path }}"
+    src: "{{ item.src }}"
+    fstype: xfs
+    state: mounted
+  with_items: "{{ mount_points }}"
+
+- name: set active/backup path for user data
+  file:
+    src: "{{ item.src}}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items: "{{ mount_symlinks }}"
+

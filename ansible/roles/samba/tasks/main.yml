@@ -1,0 +1,17 @@
+- name: make service directory
+  file:
+    path: /opt/orange-echo/samba
+    state: directory
+
+- name: copy docker files for samba
+  copy:
+    src: files/
+    dest: /opt/orange-echo/samba
+
+- name: up samba server
+  docker_compose:
+    project_src: /opt/orange-echo/samba
+    state: present
+    recreate: always
+    restarted: true
+    remove_orphans: true
