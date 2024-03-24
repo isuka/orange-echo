@@ -8,10 +8,16 @@
     src: files/
     dest: /opt/orange-echo/samba
 
+- name: down samba server
+  docker_compose:
+    project_src: /opt/orange-echo/samba
+    state: absent
+  ignore_errors: true
+
 - name: up samba server
   docker_compose:
     project_src: /opt/orange-echo/samba
     state: present
     recreate: always
-    restarted: true
+    restarted: false
     remove_orphans: true
