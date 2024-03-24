@@ -1,16 +1,12 @@
 - name: install base packages
   include_tasks: install-base-packages.yml
-  tags: debug-skip
 
 - name: set sudoer
   include_tasks: set-sudo.yml
-  tags: debug-skip
 
 - name: install docker
   include_tasks: install-docker.yml
-  tags: debug-skip
 
 - name: reboot os
   include_tasks: reboot.yml
   when: reboot is defined and reboot | bool
-  tags: debug-skip
